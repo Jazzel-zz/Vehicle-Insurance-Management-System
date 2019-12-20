@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% block title %}
+{{block.super}}Create Tweet
+{% endblock title %}
+{% block body %}
+
+<div class="card shadow-lg">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-8">
+                <h1 class="styled-font">Removing Vehicle</h1>
+            </div>
+        </div>
+        <hr />
+        <div class="card shadow m-4">
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="offset-1 col">
+                        <h1 style="font-family:Pacifico">
+                            {{object.name}}
+                        </h1>
+                        <div style="font-family:'Century Gothic'">
+                            <div class="row">
+                                <div class="col">
+                                    <h4>
+                                        by {{object.user}}
+                                    </h4>
+                                </div>
+                            </div>
+                            <hr />
+                            <!-- <div class="row">
+                        <div class="col">
+                            <h6 class="font-weight-bold">Images:</h6>
+                            <div class="row m-3">
+                                @foreach (var item in Model.VehicleImages)
+                                {
+                                <div class="m-2">
+                                    <a class="title"
+                                        href="/VehicleInformations/Download/?p=@(item.Id + item.Extension)&d=@item.FileName">
+                                        <img src="../../../Data/@(item.Id + item.Extension)"
+                                            class="img-thumbnail float-left" style="width:200px;height:120px;" />
+                                    </a>
+                                </div>
+                                }
+                            </div>
+                        </div>
+                    </div> -->
+                            <hr />
+                            <h6 class="font-weight-bold ">Basic Details:</h6>
+                            <div class="row">
+                                <div class="col">
+                                    <h6>
+                                        Rate: $ {{object.rate}}
+                                    </h6>
+                                </div>
+                                <div class="col">
+                                    <h6>
+                                        Color: {{object.color}}
+                                    </h6>
+                                </div>
+                                <div class="col">
+                                    <h6>
+                                        Model: {{object.model}}
+                                    </h6>
+                                </div>
+
+                            </div>
+                            <hr />
+                            <h6 class="font-weight-bold">Complex Details:</h6>
+                            <div class="row">
+                                <div class="col">
+                                    <p>
+                                        Vehicle Number: {{object.registration_number}}
+                                    </p>
+                                </div>
+                                <div class="col">
+                                    <p>
+                                        Body Number: {{object.body_number}}
+                                    </p>
+                                </div>
+                                <div class="col">
+                                    <p>
+                                        Engine Number: {{object.engine_number}}
+                                    </p>
+                                </div>
+                            </div>
+                            <hr />
+                            <h6 class="font-weight-bold">Description:</h6>
+                            <div class="row">
+                                <div class="col">
+                                    <p>
+                                        {{object.description}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1"></div>
+                </div>
+            </div>
+        </div>
+        <div class="p-1"></div>
+        <hr />
+        <form action="" method="POST">
+            {% csrf_token %}
+            <h1>Are you sure you want to delete this "{{object}}" ?</h1>
+            <a href="{% url 'vehicle:list' %}">Go back to list</a> |
+            <input type="submit" value="Confirm" class="btn btn-danger mt-2">
+        </form>
+    </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+{{block.super}}Create Tweet
+{% endblock title %}
+{% block body %}
+<div class="card shadow-lg">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-11 ml-5 mt-4">
+                <h1 class="styled-font">Add new Vehicle</h1>
+                <hr />
+                {% include 'vehicle/form.html' with form=form btn_title='Update' %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

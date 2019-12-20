@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}
+{{block.super}}Create Tweet
+{% endblock title %}
+{% block body %}
+<div class="card shadow-lg">
+    <div class="card-body">
+        <h1 class="styled-font">Vehicles</h1>
+        <hr>
+        <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Model</th>
+                    <th>Registration number</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for vehicle in object_list %}
+                <tr>
+                    <td>{{ vehicle.name }}</td>
+                    <td>{{ vehicle.model }}</td>
+                    <td>{{ vehicle.registration_number }}</td>
+                    <td><a href="{% url 'vehicle:detail' pk=vehicle.id %}">View</a> | <a
+                            href="{% url 'vehicle:update' pk=vehicle.id %}">Edit</a> | <a
+                            href="{% url 'vehicle:delete' pk=vehicle.id %}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+{% endblock body %}
