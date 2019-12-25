@@ -24,8 +24,10 @@ class VechicleModelForm(forms.ModelForm):
     description = forms.CharField(label='Description:', widget=forms.Textarea(attrs={
         'placeholder': 'Description', 'class': 'form-control'
     }))
+    images = forms.FileField(
+        widget=forms.ClearableFileInput(attrs={'multiple': True}))
 
     class Meta:
         model = Vehicle
         fields = ['name', 'model', 'rate',
-                  'body_number', 'engine_number', 'registration_number', 'description']
+                  'body_number', 'engine_number', 'registration_number', 'description', 'images']

@@ -126,4 +126,7 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(os.path.dirname(
     BASE_DIR), "static-serve")
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

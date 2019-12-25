@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Screen Sharing Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/getHTMLMediaElement.css">
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="text-center p-4">
+            <h1>
+                Screen Brodcasting
+            </h1>
+        </div>
+        <section class="text-center">
+            <input type="text" id="room-id" value="abcdef" autocorrect=off autocapitalize=off size=20>
+            <button id="open-room">Open Room</button>
+            <button id="join-room">Join Room</button>
+            <button id="open-or-join-room">Auto Open Or Join Room</button>
+
+            <div id="videos-container" style="margin: 20px 0;"></div>
+
+            <div id="room-urls" class="text-center p-3"
+                style="display: none;background: #F1EDED;margin: 15px -10px;border: 1px solid rgb(189, 189, 189);border-left: 0;border-right: 0;">
+            </div>
+        </section>
+    </div>
+
+    <script src="./js/jquery-3.3.1.slim.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/RTCMultiConnection.js"></script>
+    <script src="./js/socket.io.js"></script>
+    <script src="./js/getHTMLMediaElement.js"></script>
+    <script src="./js/brodcast-screen.js"></script>
+
+    <footer>
+        <small id="send-message"></small>
+    </footer>
+
+    <script src="./js/common.js"></script>
+</body>
+
+</html>

@@ -5,6 +5,11 @@ from django.urls import reverse_lazy
 # Create your models here.
 
 
+def user_directory_path(instance, filename):
+    # file will be uploaded to MEDIA_ROOT / user_<id>/<filename>
+    return 'vehicles/user_{0}_{1}/{2}'.format(instance.name, filename)
+
+
 class Vehicle(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
@@ -18,6 +23,7 @@ class Vehicle(models.Model):
     description = models.TextField(blank=True)
     updated = models.DateTimeField(auto_now=True)
     timestamp = models.DateTimeField(auto_now_add=True)
+    images = models.FileField(upload_to=user_directory_path, blank=True)
 
     def __str__(self):
         return self.name
